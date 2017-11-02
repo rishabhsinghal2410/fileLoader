@@ -21,7 +21,7 @@ import java.util.concurrent.Future;
 @Service
 public class FileLoaderService {
 
-    private final Logger LOG = Logger.getLogger(FileLoaderService.class);
+    //private final Logger LOG = Logger.getLogger(FileLoaderService.class);
 
     @Autowired
     private FileLoaderDao fileLoaderDao;
@@ -77,7 +77,7 @@ public class FileLoaderService {
                             currencyCodeDeals.put(deal.getFromCurrencyISOcode().toUpperCase(), currencyDeals);
                         }
                     } catch (Exception exception) {
-                        LOG.error(exception);
+                        //LOG.error(exception);
                         corruptDeals.add(new CorruptDeal(row, fileName, exception.getMessage()));
                     }
                 }else{
