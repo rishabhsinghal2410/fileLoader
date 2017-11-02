@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div>
+    <a th:href="'/fileLoader/'">BACK</a>
+</div>
+
+<div th:if="${not #lists.isEmpty(currencyCounts)}">
+    <ul><h5>Currency traded count:</h5>
+        <li th:each="currencyCount : ${currencyCounts}">
+            <p th:text="${currencyCount}"></p>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

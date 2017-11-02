@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  fileloader-mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=fileloader
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=password
+  fileloader-webapp:
+    image: rishabh/fileloader
+    depends_on:
+      - fileloader-mysql
+    ports:
+      - 8080:8080

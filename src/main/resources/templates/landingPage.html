@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+
+<div>
+    <form method="POST" enctype="multipart/form-data" action="/fileLoader/">
+        <table>
+            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+        </table>
+    </form>
+</div>
+
+<div>
+    <a th:href="'/fileLoader/currencyDealCount/'"><h6>Check trade done per currency</h6></a>
+</div>
+
+<div>
+    <ul>
+        <li th:each="file : ${files}">
+            <a th:href="'/fileLoader/files/' + ${file.getFileName()}" th:text="${file.getFileName()}"/> <i th:text="${file.getStatus()}"/>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

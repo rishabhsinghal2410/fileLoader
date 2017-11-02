@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+    <a th:href="'/fileLoader/'">BACK</a>
+</div>
+
+<div th:if="${not #lists.isEmpty(deals)}">
+    <ul><h5>Legitimate Deals:</h5>
+        <li th:each="deal : ${deals}">
+            <p th:text="${deal}"></p>
+        </li>
+    </ul>
+</div>
+
+<div th:if="${not #lists.isEmpty(corruptDeals)}">
+    <ul><h5>Corrupt Deals:</h5>
+        <li th:each="deal : ${corruptDeals}">
+            <p th:text="${deal}"></p>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
